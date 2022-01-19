@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44658822, g: 0.49642307, b: 0.5748253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,14 +401,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: {fileID: 1937751184}
   MintText: {fileID: 750406725}
-  MineKeys: []
+  accountKeys: []
   CurrPubKeyText: {fileID: 1762550653}
   CurrPubKey: 
   dropdown: {fileID: 1380745676}
   mintname: 
   MintBtn: {fileID: 840061421}
   inputMintName: {fileID: 829323888}
-  mintMesInput: {fileID: 559936806}
+  chainMessageZone: {fileID: 559936806}
 --- !u!4 &258944921
 Transform:
   m_ObjectHideFlags: 0
@@ -708,7 +708,7 @@ MonoBehaviour:
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
-  m_LineType: 0
+  m_LineType: 1
   m_HideMobileInput: 0
   m_CharacterValidation: 0
   m_CharacterLimit: 0
@@ -744,8 +744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 190, y: 25}
-  m_SizeDelta: {x: 300, y: 550}
+  m_AnchoredPosition: {x: 461.2786, y: -20.8499}
+  m_SizeDelta: {x: 842.5571, y: 641.6997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559936808
 MonoBehaviour:
@@ -4388,7 +4388,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 0
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
