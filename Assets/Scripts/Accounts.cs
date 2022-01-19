@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class Accounts : MonoBehaviour{
     public Text Mint1Text;
 
-    public string mintname;
+    public string accountName;
     // Start is called before the first frame update
     void Start(){
-        StartCoroutine(IMintEvent(mintname));
+        // StartCoroutine(IMintEvent(accountName));
+    }
+
+    public void setAccountName(string accountName){
+        this.accountName = accountName;
     }
 
     IEnumerator IMintEvent(string name) {
