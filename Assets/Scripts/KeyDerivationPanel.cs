@@ -11,6 +11,8 @@ public class KeyDerivationPanel : MonoBehaviour
 {
     private System.Random _random;
 
+    public List<string> MineKeys=new List<string>();
+
     public Text Secret;
 
     public Text PublicKey;
@@ -44,6 +46,9 @@ public class KeyDerivationPanel : MonoBehaviour
         PublicKey.text = $"[{pubKey.Length}] {BytesToHexString(pubKey, true)}";
 
         Debug.Log($"PUB: {BytesToHexString(pubKey, true)}, PRI: {BytesToHexString(priKey, true)}");
+
+        //添加公钥保存
+        HttpPolka.Instance.AddPubKeyToList(BytesToHexString(pubKey, true));
 
         var msg = "Test sign me!";
         var msgBytes = Encoding.UTF8.GetBytes(msg);
