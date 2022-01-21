@@ -100,4 +100,19 @@ public class HttpPolka : MonoBehaviour
             chainMessageZone.text = "Mint结果-" + www.text;
         }
     }
+
+    // queryUsersSwallower
+    IEnumerator UserSwallowers(string accountName,string name) {
+        string url = "http://localhost:5000/swallower/mintSwallower?account="+accountName+"&name="+name;
+        WWW www = new WWW(url);
+        yield return www;
+        if (!www.isDone){
+            Debug.Log("错误"+www.error);
+            chainMessageZone.text = "Mint失败--"+www.error;
+            MintText.text = "Mint失败--" + www.error;
+        } else {
+            MintText.text = "Mint结果-"+www.text;
+            chainMessageZone.text = "Mint结果-" + www.text;
+        }
+    }
 }

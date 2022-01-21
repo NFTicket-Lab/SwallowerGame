@@ -206,7 +206,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 615065279}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9996158
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4303,7 +4303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00060245465}
+  m_AnchoredPosition: {x: 0, y: -0.000032026834}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1964820524
@@ -4397,7 +4397,7 @@ GameObject:
   - component: {fileID: 2001731327}
   - component: {fileID: 2001731326}
   m_Layer: 5
-  m_Name: SwallowerGene
+  m_Name: SwallowerGene1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
