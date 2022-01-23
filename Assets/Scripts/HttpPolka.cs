@@ -65,6 +65,11 @@ public class HttpPolka : MonoBehaviour
         mintname = inputMintName.text;
         StartCoroutine(IMintEvent(CurrPubKey,mintname));
     }
+
+    public void StartQueryMySwallowers(){
+        mintname = inputMintName.text;
+        StartCoroutine(UserSwallowers(CurrPubKey));
+    }
     /// <summary>
     /// 添加生成出来的公钥
     /// </summary>
