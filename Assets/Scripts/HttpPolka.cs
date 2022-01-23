@@ -24,7 +24,7 @@ public class HttpPolka : MonoBehaviour
     public Button MintBtn;
     public InputField inputMintName;
 
-    public InputField chainMessageZone;
+    // public InputField chainMessageZone;
     private void Awake()
     {
         if (Instance == null) {
@@ -61,8 +61,7 @@ public class HttpPolka : MonoBehaviour
     }
 
 
-    public void StartMintEvent()
-    {
+    public void StartMintEvent(){
         mintname = inputMintName.text;
         StartCoroutine(IMintEvent(CurrPubKey,mintname));
     }
@@ -93,26 +92,30 @@ public class HttpPolka : MonoBehaviour
         yield return www;
         if (!www.isDone){
             Debug.Log("错误"+www.error);
-            chainMessageZone.text = "Mint失败--"+www.error;
+            // chainMessageZone.text = "Mint失败--"+www.error;
             MintText.text = "Mint失败--" + www.error;
         } else {
             MintText.text = "Mint结果-"+www.text;
-            chainMessageZone.text = "Mint结果-" + www.text;
+            // chainMessageZone.text = "Mint结果-" + www.text;
+            UserSwallowers(accountName);
         }
     }
 
     // queryUsersSwallower
-    IEnumerator UserSwallowers(string accountName,string name) {
-        string url = "http://localhost:5000/swallower/mintSwallower?account="+accountName+"&name="+name;
+    IEnumerator UserSwallowers(string accountName) {
+        string url = "http://localhost:5000/swallower/ownerSwallower?accountId="+accountName;
         WWW www = new WWW(url);
         yield return www;
         if (!www.isDone){
             Debug.Log("错误"+www.error);
-            chainMessageZone.text = "Mint失败--"+www.error;
+            // chainMessageZone.text = "查询用户的吞噬者失败"+www.error;
             MintText.text = "Mint失败--" + www.error;
         } else {
-            MintText.text = "Mint结果-"+www.text;
-            chainMessageZone.text = "Mint结果-" + www.text;
+            MintText.text = "查询用户吞噬者结果-"+www.text;
+            // for(int i;i<www.text.length;i++){
+
+            // }
+            Debug.Log("用户的吞噬者:"+www.text);
         }
     }
 }
