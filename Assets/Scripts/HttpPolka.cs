@@ -15,7 +15,9 @@ public class HttpPolka : MonoBehaviour
 
 
     public Text CurrPubKeyText;
-    public string CurrPubKey;
+
+    public Text SwallowerGene1;
+    public string accountName;
 
     public Dropdown dropdown;
 
@@ -41,7 +43,7 @@ public class HttpPolka : MonoBehaviour
         }
 
         if (accountKeys.Count > 0){
-            CurrPubKey = accountKeys[0];
+            accountName = accountKeys[0];
         } else {
             AddPubKeyToList("Bob");
             AddPubKeyToList("Alice");
@@ -52,23 +54,23 @@ public class HttpPolka : MonoBehaviour
             // CurrPubKeyText.text = "请先生成一个账号";
             // CurrPubKey = "空";
         }
-        CurrPubKey = accountKeys[0];
+        accountName = accountKeys[0];
     }
 
     public void ChangeDropKey() {
         CurrPubKeyText.text = accountKeys[dropdown.value];
-        CurrPubKey = CurrPubKeyText.text;
+        accountName = CurrPubKeyText.text;
     }
 
 
     public void StartMintEvent(){
         mintname = inputMintName.text;
-        StartCoroutine(IMintEvent(CurrPubKey,mintname));
+        StartCoroutine(IMintEvent(accountName,mintname));
     }
 
-    public void StartQueryMySwallowers(){
-        mintname = inputMintName.text;
-        StartCoroutine(UserSwallowers(CurrPubKey));
+    //query user
+    public void StartQueryMySwallowers(string accountName){
+        StartCoroutine(UserSwallowers(accountName));
     }
     /// <summary>
     /// 添加生成出来的公钥
@@ -79,7 +81,7 @@ public class HttpPolka : MonoBehaviour
             accountKeys.Add(key);
             if (accountKeys.Count == 1) {
                 CurrPubKeyText.text = accountKeys[0];
-                CurrPubKey = CurrPubKeyText.text;
+                accountName = CurrPubKeyText.text;
             }
 
             count.text = accountKeys.Count.ToString();
@@ -102,7 +104,7 @@ public class HttpPolka : MonoBehaviour
         } else {
             MintText.text = "Mint结果-"+www.text;
             // chainMessageZone.text = "Mint结果-" + www.text;
-            UserSwallowers(accountName);
+            StartQueryMySwallowers(this.accountName);
         }
     }
 
@@ -120,7 +122,14 @@ public class HttpPolka : MonoBehaviour
             // for(int i;i<www.text.length;i++){
 
             // }
-            Debug.Log("用户的吞噬者:"+www.text);
+            MySwalloweres mySwallowers= JsonUtility.FromJson<MySwalloweres>(www.text);
+            Debug.Log("用户的吞噬者:"+mySwallowers.ownerSwallower[0]);
+            SwallowerGene1.text = mySwallowers.ownerSwallower[0];
         }
+    }
+
+    [System.Serializable]
+    public class MySwalloweres{
+        public List<string> ownerSwallower;
     }
 }
