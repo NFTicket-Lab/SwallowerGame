@@ -119,10 +119,12 @@ public class HttpPolka : MonoBehaviour
             MintText.text = "Mint失败--" + www.error;
         } else {
             MintText.text = "查询用户吞噬者结果-"+www.text;
-            // for(int i;i<www.text.length;i++){
-
-            // }
+            
             MySwalloweres mySwallowers= JsonUtility.FromJson<MySwalloweres>(www.text);
+            for(int i=0;i<mySwallowers.ownerSwallower.Count;i++){
+                Debug.Log("用户的吞噬者:"+mySwallowers.ownerSwallower[i]);
+                SwallowerGene1.text = mySwallowers.ownerSwallower[i];
+            }
             Debug.Log("用户的吞噬者:"+mySwallowers.ownerSwallower[0]);
             SwallowerGene1.text = mySwallowers.ownerSwallower[0];
         }
